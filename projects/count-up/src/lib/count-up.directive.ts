@@ -49,7 +49,7 @@ export class CountUpDirective implements OnChanges {
   constructor(private el: ElementRef) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.endVal && changes.endVal.currentValue) {
+    if (changes.endVal && typeof changes.endVal.currentValue !== 'undefined') {
       this.countUp = this.createCountUp();
       this.animate();
     }
